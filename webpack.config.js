@@ -9,7 +9,7 @@ module.exports = {
     print: './src/print.js',
   },
   devtool: 'inline-source-map',
-  devServer: {
+  devServer: {    
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,    
@@ -18,11 +18,15 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Output Management',
+      hash: false,
+      template: './index_template.html',
+      filename: './index.html'
     }),
   ], 
+
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),    
     publicPath: '/triplog/',
   }
 };
