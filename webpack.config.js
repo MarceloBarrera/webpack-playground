@@ -10,7 +10,9 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,    
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -21,5 +23,6 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/triplog/',
   }
 };
